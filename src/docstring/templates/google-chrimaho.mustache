@@ -1,9 +1,9 @@
-{{! Google Docstring Template }}
-!!! Summary "Summary"
+{{! Custom Google Docstring Template }}
+!!! summary "Summary"
     {{summaryPlaceholder}}
 
-???+ Info "Details"
-    {{descriptionPlaceholder}}
+???+ info "Details"
+    {{extendedSummaryPlaceholder}}{{descriptionPlaceholder}}
 {{#parametersExist}}
 
 Args:
@@ -12,8 +12,8 @@ Args:
         {{descriptionPlaceholder}}
 {{/args}}
 {{#kwargs}}
-    {{var}} ({{typePlaceholder}}):
-        {{descriptionPlaceholder}}.  
+    {{var}} ({{typePlaceholder}}, optional):
+        {{descriptionPlaceholder}}.<br>  
         Defaults to `{{&default}}`.
 {{/kwargs}}
 {{/parametersExist}}
@@ -21,15 +21,14 @@ Args:
 
 Raises:
 {{#exceptions}}
-    {{type}}:
-        {{descriptionPlaceholder}}
+    {{type}}: {{descriptionPlaceholder}}
 {{/exceptions}}
 {{/exceptionsExist}}
 {{#returnsExist}}
 
 Returns:
 {{#returns}}
-    {{typePlaceholder}}:
+    ({{typePlaceholder}}):
         {{descriptionPlaceholder}}
 {{/returns}}
 {{/returnsExist}}
@@ -37,16 +36,22 @@ Returns:
 
 Yields:
 {{#yields}}
-    {{typePlaceholder}}:
+    ({{typePlaceholder}}):
         {{descriptionPlaceholder}}
 {{/yields}}
 {{/yieldsExist}}
 
-!!! Example "Examples"
+!!! success "Credit"
+    - All credit goes to the [`{{descriptionPlaceholder}}`]({{descriptionPlaceholder}}) library.
+
+!!! example "Examples"
     {{descriptionPlaceholder}}
-    ```python linenums="1"
+    ```python linenums="1" title="Python"
     >>> {{descriptionPlaceholder}}
     ```
 
-!!! Tip "See Also"
+??? question "References"
+    - {{descriptionPlaceholder}}
+
+??? tip "See Also"
     - {{descriptionPlaceholder}}
